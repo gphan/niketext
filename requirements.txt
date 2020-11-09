@@ -1,2 +1,4 @@
-textgenrnn
-flask
+git+git://github.com/minimaxir/textgenrnn.git@TF-2.0#egg=textgenrnn
+Flask==1.1.1
+tensorflow==2.2.0
+h5py==2.10.0
