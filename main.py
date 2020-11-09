@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import flask
+from flask import Flask
 from flask import render_template, send_from_directory
 from textgenrnn import textgenrnn
 
