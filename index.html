@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nike Text Generator</title>
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Nike Text Generator</h1>
+    <button id="genButton" type="button">Generate</button>
+    <div id="text"></div>
+    <script>
+        $('#genButton').click(function() {
+            $.ajax({
+                url: "{{ url_for('generate')}}",
+                dataType: 'html',
+                success: function(response) {
+                    var data = response.split("\n");
+
+                    var list_html = "<ul>";
+
+                    for (var i = 0; i < data.length; i++) {
+                        list_html += "<li>" + data[i] + "</li>"
+                    }
+
+                    list_html += "</ul>";
+
+                    $("#text").html(list_html);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
