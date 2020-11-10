@@ -2,3 +2,4 @@ git+git://github.com/minimaxir/textgenrnn.git@TF-2.0#egg=textgenrnn
 Flask
 tensorflow==2.3.1
 h5py==2.10.0
+gunicorn
