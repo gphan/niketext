@@ -13,8 +13,8 @@ def index():
 @app.route('/generate', methods=['GET'])
 def generate():
     textgen = textgenrnn("niketext_weights.hdf5")
-    text = textgen.generate(n=10, return_as_list=True)
+    text = textgen.generate(n=1, return_as_list=True)
     return "\n".join(text)
 
 if __name__ == '__main__':
-    app.run(threaded=False)
+    app.run()
