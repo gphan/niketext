@@ -11,12 +11,36 @@
             font-family: 'Helvetica', 'Arial', 'sans-serif';
             margin: 50px;
         }
+
+        label {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 5px;
+        }
+
+        button {
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        ul {
+            margin: 5px;
+        }
+
+        li {
+            margin: 5px;
+        }
     </style>
 </head>
 <body>
     <h1>Nike Text Generator</h1>
-    <label for="temperature">Temperature</label><input id="temperature" type="text" value="0.5" />
-    <label for="samples">Samples</label><input id="samples" type="text" value="3" />
+    <label for="temperature">Temperature</label><input id="temperature" type="text" value="0.5" placeholder="between 0.0 and 1.0" />
+    <label for="samples">Samples</label><input id="samples" type="text" value="3" placeholder="samples to return"/>
+    <label for="prefix">Prefix</label><input id="prefix" type="text" value="" placeholder="nike" />
+    <br />
     <button id="genButton" type="button">Generate</button>
     <div id="text"></div>
     <script>
@@ -25,13 +49,15 @@
 
             var temperature = $('#temperature').val();
             var samples = $("#samples").val();
+            var prefix = $("#prefix").val();
 
             $.ajax({
                 url: "{{ url_for('generate') }}",
                 type: 'get',
                 data: {
                     temperature: temperature,
-                    samples: samples
+                    samples: samples,
+                    prefix: prefix
                 },
                 dataType: 'html',
                 success: function(response) {
