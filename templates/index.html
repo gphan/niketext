@@ -59,9 +59,9 @@
                     samples: samples,
                     prefix: prefix
                 },
-                dataType: 'html',
+                dataType: 'json',
                 success: function(response) {
-                    var data = JSON.parse(response);
+                    var data = response;
 
                     var list_html = "<ul>";
 
