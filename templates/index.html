@@ -61,7 +61,7 @@
                 },
                 dataType: 'html',
                 success: function(response) {
-                    var data = response.split("\n");
+                    var data = JSON.parse(response);
 
                     var list_html = "<ul>";
 

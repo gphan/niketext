@@ -2,7 +2,7 @@
 
 import os
 from flask import Flask
-from flask import render_template, request, send_from_directory
+from flask import render_template, request, send_from_directory, jsonify
 from textgenrnn import textgenrnn
 
 app = Flask(__name__)
@@ -28,8 +28,8 @@ def generate():
     samples = request.args.get('samples', default=2, type=int)
     prefix = request.args.get('prefix', default=None, type=str)
     text = textgen.generate(n=samples, temperature=temperature, prefix=prefix, return_as_list=True)
-    return "\n".join(text)
+    return jsonify(text)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
